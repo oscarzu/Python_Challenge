@@ -1,12 +1,14 @@
 import os
 import csv
-        
+
+#Firs we declare the path of the file        
 csvpath = os.path.join("Resources","PyBank_Data.csv")
 
+#We open the file using the , as delimiter
 with open(csvpath, newline = '') as csvfile:
         csvreader = csv.reader(csvfile, delimiter = ',')
         next(csvreader)
-
+    #We need to iterate to each row to find the values wanted
 
         Months = 0
         Total_Rev_Change = 0
@@ -36,6 +38,7 @@ with open(csvpath, newline = '') as csvfile:
 
         AvgRevChange = Total_Rev_Change/Months
 
+        f= open("Financial Analysis.txt","w+")
         print()
         print()
         print("Financial Analysis")
@@ -46,3 +49,5 @@ with open(csvpath, newline = '') as csvfile:
         print(f"Greatest Increase in Revenue: {MaxRevMonth} ${round(Max_Revenue_Change,2)}")
         print(f"Greatest Decrease in Revenue: {MinRevMonth} ${round(Min_Revenue_Change,2)}")
         print()
+        f.close()
+        
