@@ -9,6 +9,7 @@ with open(csvpath, newline = '') as csvfile:
         csvreader = csv.reader(csvfile, delimiter = ',')
         next(csvreader)
     #We need to iterate to each row to find the values wanted
+    #And we have to declare the variables
 
         Months = 0
         Total_Rev_Change = 0
@@ -38,14 +39,23 @@ with open(csvpath, newline = '') as csvfile:
 
         AvgRevChange = Total_Rev_Change/Months
 
-        f= open("Financial Analysis.txt","w")
+        #Printing the results 
         print()
         print()
         print(f"Financial Analysis")
-        print(f"----------------------------")
+        print(f"________________________________________")
         print(f"Total Revenue: ${round(Total_Revenue,2)}")
         print(f"Average Revenue Change: ${round(AvgRevChange,2)}")
         print(f"Greatest Increase in Revenue: {MaxRevMonth} ${round(Max_Revenue_Change,2)}")
         print(f"Greatest Decrease in Revenue: {MinRevMonth} ${round(Min_Revenue_Change,2)}")
         print()
-        f.close()
+
+        #The results are then exported to a txt file with the name of Financial Analysis
+        file=open("Financial Analysis.txt","w")
+        file.write("Financial Analysis\n")
+        file.write("______________________________________\n")
+        file.write(f"Total Revenue : $ {round(Total_Revenue,2)}\n")
+        file.write(f"Average Revenue Change: ${round(AvgRevChange,2)}\n")
+        file.write(f"Greatest Increase in Revenue: {MaxRevMonth} ${round(Max_Revenue_Change)}\n")
+        file.write(f"Greatest Decrease in Revenue: {MinRevMonth} ${round(Min_Revenue_Change,2)}\n")
+        file.close()
