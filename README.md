@@ -1,2 +1,2 @@
-# Python_Challenge
-This challenge will output: A financial report from a bank and the winner of a local poll
+# Python Challenge
+The code inside this project will take the financial results of a bank and return the summarize information in a .txt file
